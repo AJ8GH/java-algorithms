@@ -5,8 +5,6 @@ import java.util.List;
 
 public class BubbleSort {
     public List<Integer> sort(List<Integer> input) {
-        if (input.size() < 2) return input;
-
         while (true) {
             int counter = 0;
             for (int i = 0; i < input.size() -1; i++) {
