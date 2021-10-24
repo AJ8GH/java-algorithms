@@ -9,9 +9,10 @@ public class FibonacciRecursive extends AbstractFibonacci {
         return getSequence(n, new ArrayList<>(FIBONACCI_STARTER));
     }
 
-    public List<Integer> getSequence(int n, List<Integer> sequence) {
+    private List<Integer> getSequence(int n, List<Integer> sequence) {
         if (n < 3) return sequence;
-        sequence.add(sequence.get(n - 3) + sequence.get(n - 2));
+        int size = sequence.size();
+        sequence.add(sequence.get(size - 2) + sequence.get(size - 1));
         return getSequence(n - 1, sequence);
     }
 }
