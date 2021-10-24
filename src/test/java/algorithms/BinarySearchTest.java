@@ -31,4 +31,9 @@ class BinarySearchTest {
     public void testFind_elementNotPresent() {
         assertEquals(-1, victim.find(List.of(2, 6), 9));
     }
+
+    @Test
+    public void testFind_threeElementList() {
+        assertEquals(2, victim.find(List.of(2, 6, 9), 9));
+    }
 }
