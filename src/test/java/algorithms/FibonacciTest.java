@@ -25,4 +25,9 @@ class FibonacciTest {
     public void testGetSequence_TwoNumbers() {
         assertEquals(List.of(0, 1), victim.getSequence(2));
     }
+
+    @Test
+    public void testGetSequence_ThreeNumbers() {
+        assertEquals(List.of(0, 1, 1), victim.getSequence(3));
+    }
 }
