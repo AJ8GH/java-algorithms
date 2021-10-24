@@ -1,5 +1,6 @@
-package algorithms;
+package algorithms.fibonacci;
 
+import algorithms.fibonacci.FibonacciRecursive;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -7,14 +8,14 @@ import java.util.List;
 
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-class FibonacciTest {
-    private Fibonacci victim;
+class FibonacciRecursiveTest {
+    private FibonacciRecursive victim;
 
     @BeforeEach
     public void setUp() {
-        victim = new Fibonacci();
+        victim = new FibonacciRecursive();
     }
 
     @Test

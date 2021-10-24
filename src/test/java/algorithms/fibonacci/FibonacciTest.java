@@ -1,5 +1,6 @@
-package algorithms;
+package algorithms.fibonacci;
 
+import algorithms.fibonacci.Fibonacci;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -7,14 +8,14 @@ import java.util.List;
 
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class FibonacciRecursiveTest {
-    private FibonacciRecursive victim;
+class FibonacciTest {
+    private Fibonacci victim;
 
     @BeforeEach
     public void setUp() {
-        victim = new FibonacciRecursive();
+        victim = new Fibonacci();
     }
 
     @Test
@@ -40,5 +41,11 @@ class FibonacciRecursiveTest {
     @Test
     public void testGetSequence_fourNumbers() {
         assertEquals(List.of(0, 1, 1, 2), victim.getSequence(4));
+    }
+
+    @Test
+    public void testGetSequence_tenNumbers() {
+        List<Integer> expected = List.of(0, 1, 1, 2, 3, 5, 8, 13, 21, 34);
+        assertEquals(expected, victim.getSequence(10));
     }
 }
