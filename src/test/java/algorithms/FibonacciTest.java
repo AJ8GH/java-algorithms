@@ -41,4 +41,10 @@ class FibonacciTest {
     public void testGetSequence_fourNumbers() {
         assertEquals(List.of(0, 1, 1, 2), victim.getSequence(4));
     }
+
+    @Test
+    public void testGetSequence_tenNumbers() {
+        List<Integer> expected = List.of(0, 1, 1, 2, 3, 5, 8, 13, 21, 34);
+        assertEquals(expected, victim.getSequence(10));
+    }
 }
