@@ -3,9 +3,7 @@ package algorithms;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Fibonacci {
-    private static final List<Integer> FIBONACCI_STARTER = List.of(0, 1);
-
+public class Fibonacci extends AbstractFibonacci {
     public List<Integer> getSequence(int n) {
         List<Integer> sequence = new ArrayList<>(FIBONACCI_STARTER);
         if (n < 3) return sequence.subList(0, n);
