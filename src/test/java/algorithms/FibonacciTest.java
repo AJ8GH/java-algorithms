@@ -3,7 +3,6 @@ package algorithms;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
@@ -20,5 +19,10 @@ class FibonacciTest {
     @Test
     public void testGetSequence_OneNumber() {
         assertEquals(singletonList(0), victim.getSequence(1));
+    }
+
+    @Test
+    public void testGetSequence_TwoNumbers() {
+        assertEquals(List.of(0, 1), victim.getSequence(2));
     }
 }
