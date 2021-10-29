@@ -28,7 +28,7 @@ public class BinarySearch {
                 upper = list.size() - 1;
             }
             LOGGER.info("=== Upper: {}, Lower: {}, Middle: {} ===", upper, lower, middle);
-            middle = lower + upper / 2;
+            middle = (lower + upper) / 2;
             if (upper - lower <= 1) {
                 if (Objects.equals(list.get(upper), element)) {
                     return upper;
