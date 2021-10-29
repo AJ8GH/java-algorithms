@@ -62,4 +62,16 @@ class BinarySearchTest {
         List<Integer> list = List.of(2, 3, 5, 6, 7, 9, 10, 13, 14, 17, 20);
         assertEquals(8, victim.find(list, 14));
     }
+
+    @Test
+    public void testFind_ElevenElementList_AtElementSix() {
+        List<Integer> list = List.of(2, 3, 5, 6, 7, 9, 10, 13, 14, 17, 20);
+        assertEquals(6, victim.find(list, 10));
+    }
+
+    @Test
+    public void testFind_ElevenElementList_AtElementThree() {
+        List<Integer> list = List.of(2, 3, 5, 6, 7, 9, 10, 13, 14, 17, 20);
+        assertEquals(3, victim.find(list, 6));
+    }
 }

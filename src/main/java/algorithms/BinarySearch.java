@@ -13,8 +13,8 @@ public class BinarySearch {
     public int find(List<Integer> list, Integer element) {
         LOGGER.info("searching for element: {}", element);
 
-        int lower;
-        int upper;
+        int lower = 0;
+        int upper = list.size() - 1;
         int middle = list.size() / 2;
 
         while (true) {
@@ -22,13 +22,11 @@ public class BinarySearch {
             if (Objects.equals(middleEl, element)) return middle;
             if (middleEl > element) {
                 upper = middle;
-                lower = 0;
             } else {
                 lower = middle;
-                upper = list.size() - 1;
             }
-            LOGGER.info("=== Upper: {}, Lower: {}, Middle: {} ===", upper, lower, middle);
             middle = (lower + upper) / 2;
+            LOGGER.info("=== Upper: {}, Lower: {}, Middle: {} ===", upper, lower, middle);
             if (upper - lower <= 1) {
                 if (Objects.equals(list.get(upper), element)) {
                     return upper;
