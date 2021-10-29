@@ -20,19 +20,13 @@ public class BinarySearch {
         while (true) {
             int middleEl = list.get(middle);
             if (Objects.equals(middleEl, element)) return middle;
-            if (middleEl > element) {
-                upper = middle;
-            } else {
-                lower = middle;
-            }
+            if (middleEl > element) upper = middle;
+            if (middleEl < element) lower = middle;
             middle = (lower + upper) / 2;
-            LOGGER.info("=== Upper: {}, Lower: {}, Middle: {} ===", upper, lower, middle);
+
             if (upper - lower <= 1) {
-                if (Objects.equals(list.get(upper), element)) {
-                    return upper;
-                } else if (Objects.equals(list.get(lower), element)) {
-                    return lower;
-                }
+                if (Objects.equals(list.get(upper), element)) return upper;
+                if (Objects.equals(list.get(lower), element)) return lower;
                 break;
             }
         }
