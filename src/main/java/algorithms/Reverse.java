@@ -7,7 +7,7 @@ public class Reverse {
     public <T> List<T> reverse(List<T> list) {
         if (list.size() < 2) return list;
 
-        Collections.swap(list, 0, 1);
+        Collections.swap(list, 0, list.size() -1);
         return list;
     }
 }
