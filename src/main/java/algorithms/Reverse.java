@@ -8,11 +8,10 @@ public class Reverse {
         if (list.size() < 2) return list;
         int j = list.size() - 1;
 
-        for (int i = 0; i < list.size(); i++) {
-            Collections.swap(list, i, j);
-            j--;
-            if (i >= j) break;
+        for (int i = 0; i < list.size() / 2; i++) {
+            Collections.swap(list, i, j--);
         }
+
         return list;
     }
 }
