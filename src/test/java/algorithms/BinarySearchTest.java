@@ -1,17 +1,17 @@
 package algorithms;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.util.List;
 
 import static java.util.Collections.singletonList;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class BinarySearchTest {
     private static BinarySearch victim;
 
-    @BeforeAll
+    @BeforeClass
     public static void setUp() {
         victim = new BinarySearch();
     }

@@ -1,22 +1,20 @@
 package algorithms;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
 import static java.util.Collections.singletonList;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.testng.AssertJUnit.assertEquals;
 
-@TestInstance(TestInstance.Lifecycle.PER_METHOD)
 public class ReverseTest {
     private static Reverse victim;
     private List<Integer> list;
     private List<Integer> expected;
 
-    @BeforeAll
+    @BeforeClass
     public static void setUp() {
         victim = new Reverse();
     }

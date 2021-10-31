@@ -1,18 +1,18 @@
 package algorithms.fibonacci;
 
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
 import java.util.List;
 
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.testng.AssertJUnit.assertEquals;
 
 public class FibonacciTest {
     private static Fibonacci victim;
 
-    @BeforeAll
+    @BeforeClass
     public static void setUp() {
         victim = new Fibonacci();
     }
