@@ -1,4 +1,5 @@
-# Java Algorithms
+Java Algorithms
+===============
 
 [![Build Status](https://app.travis-ci.com/AJ8GH/java-algorithms.svg?branch=main)](https://app.travis-ci.com/AJ8GH/java-algorithms)
 [![codecov](https://codecov.io/gh/AJ8GH/java-algorithms/branch/main/graph/badge.svg?token=B4G4VW08M3)](https://codecov.io/gh/AJ8GH/java-algorithms)

@@ -41,4 +41,12 @@ public class ReverseTest {
 
         assertEquals(expected, victim.reverse(list));
     }
+
+    @Test
+    public void testReverse_FourElementList() {
+        list = Arrays.asList(1, 2, 3, 4);
+        expected = List.of(4, 3, 2, 1);
+
+        assertEquals(expected, victim.reverse(list));
+    }
 }
