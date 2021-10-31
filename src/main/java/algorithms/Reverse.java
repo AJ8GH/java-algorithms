@@ -17,9 +17,12 @@ public class Reverse {
 
     public int[] reverse(int[] array) {
         if (array.length < 2) return array;
-        int first = array[0];
-        array[0] = array[array.length -1];
-        array[array.length -1] = first;
+        int j = array.length -1;
+        for (int i = 0; i < array.length / 2; i++) {
+            int element = array[i];
+            array[i] = array[j];
+            array[j--] = element;
+        }
         return array;
     }
 }

@@ -38,4 +38,12 @@ public class ReverseArrayTest {
 
         assertArrayEquals(expectedArray, victim.reverse(array));
     }
+
+    @Test
+    public void testReverse_FourElementArray() {
+        array = new int[] { 1, 2, 3, 4 };
+        expectedArray = new int[] { 4, 3, 2, 1 };
+
+        assertArrayEquals(expectedArray, victim.reverse(array));
+    }
 }
