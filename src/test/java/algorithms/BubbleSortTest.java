@@ -1,6 +1,6 @@
 package algorithms;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -10,11 +10,11 @@ import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.*;
 
-class BubbleSortTest {
-    private BubbleSort victim;
+public class BubbleSortTest {
+    private static BubbleSort victim;
 
-    @BeforeEach
-    public void setUp() {
+    @BeforeAll
+    public static void setUp() {
         victim = new BubbleSort();
     }
 

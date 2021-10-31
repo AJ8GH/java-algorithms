@@ -1,6 +1,6 @@
 package algorithms;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -11,10 +11,10 @@ import static java.util.Collections.emptySet;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FindDuplicatesTest {
-    private FindDuplicates victim;
+    private static FindDuplicates victim;
 
-    @BeforeEach
-    public void setUp() {
+    @BeforeAll
+    public static void setUp() {
         victim = new FindDuplicates();
     }
 

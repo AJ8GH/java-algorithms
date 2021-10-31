@@ -1,6 +1,6 @@
 package algorithms;
 
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -8,11 +8,11 @@ import java.util.List;
 import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class BinarySearchTest {
-    private BinarySearch victim;
+public class BinarySearchTest {
+    private static BinarySearch victim;
 
-    @BeforeEach
-    public void setUp() {
+    @BeforeAll
+    public static void setUp() {
         victim = new BinarySearch();
     }
 

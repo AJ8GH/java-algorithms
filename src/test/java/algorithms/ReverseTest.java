@@ -2,6 +2,7 @@ package algorithms;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +10,8 @@ import java.util.List;
 import static java.util.Collections.singletonList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class ReverseTest {
+@TestInstance(TestInstance.Lifecycle.PER_METHOD)
+public class ReverseTest {
     private static Reverse victim;
     private List<Integer> list;
     private List<Integer> expected;
