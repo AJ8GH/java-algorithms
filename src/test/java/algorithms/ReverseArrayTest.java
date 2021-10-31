@@ -46,4 +46,28 @@ public class ReverseArrayTest {
 
         assertArrayEquals(expectedArray, victim.reverse(array));
     }
+
+    @Test
+    public void testReverse_FiveElementArray() {
+        array = new int[] { 1, 2, 3, 4, 5 };
+        expectedArray = new int[] { 5, 4, 3, 2, 1 };
+
+        assertArrayEquals(expectedArray, victim.reverse(array));
+    }
+
+    @Test
+    public void testReverse_TwelveElementArray() {
+        array = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+        expectedArray = new int[] { 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+
+        assertArrayEquals(expectedArray, victim.reverse(array));
+    }
+
+    @Test
+    public void testReverse_FifteenElementArray() {
+        array = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+        expectedArray = new int[] { 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+
+        assertArrayEquals(expectedArray, victim.reverse(array));
+    }
 }
