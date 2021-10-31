@@ -14,4 +14,8 @@ public class Reverse {
 
         return list;
     }
+
+    public int[] reverse(int[] array) {
+        return array;
+    }
 }
