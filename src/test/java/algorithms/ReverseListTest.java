@@ -10,14 +10,11 @@ import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
 import static org.testng.AssertJUnit.assertEquals;
 
-public class ReverseTest {
+public class ReverseListTest {
     private static Reverse victim;
 
     private List<Integer> list;
     private List<Integer> expectedList;
-
-    private int[] array;
-    private int[] expectedArray;
 
     @BeforeClass
     public static void setUp() {
@@ -84,12 +81,5 @@ public class ReverseTest {
         expectedList = List.of(15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1);
 
         assertEquals(expectedList, victim.reverse(list));
-    }
-
-    @Test
-    public void testReverse_OneElementArray() {
-        array = new int[] { 1 };
-
-        assertEquals(array, victim.reverse(array));
     }
 }
