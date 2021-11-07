@@ -3,8 +3,9 @@ Java Algorithms
 
 [![Build Status](https://app.travis-ci.com/AJ8GH/java-algorithms.svg?branch=main)](https://app.travis-ci.com/AJ8GH/java-algorithms)
 [![codecov](https://codecov.io/gh/AJ8GH/java-algorithms/branch/main/graph/badge.svg?token=B4G4VW08M3)](https://codecov.io/gh/AJ8GH/java-algorithms)
-
-A project to practice Algorithm design and TDD in Java   
+[![Maintainability](https://api.codeclimate.com/v1/badges/7edd79c7d49aadd35a7d/maintainability)](https://codeclimate.com/github/AJ8GH/java-algorithms/maintainability)
+ 
+A project to practice Algorithm design and TDD in Java
 
 ## Getting started
 
