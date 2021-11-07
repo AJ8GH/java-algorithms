@@ -5,7 +5,7 @@ Java Algorithms
 [![codecov](https://codecov.io/gh/AJ8GH/java-algorithms/branch/main/graph/badge.svg?token=B4G4VW08M3)](https://codecov.io/gh/AJ8GH/java-algorithms)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7edd79c7d49aadd35a7d/maintainability)](https://codeclimate.com/github/AJ8GH/java-algorithms/maintainability)
  
-A project to practice Algorithm design and TDD in Java
+Algorithms implemented in Java using TDD
 
 ## Getting started
 
@@ -26,8 +26,11 @@ A project to practice Algorithm design and TDD in Java
 
 ## Algorithms implemented:
 - Find duplicates
-- Bubble sort
+- Bubble sort list
+- Bubble sort array
 - Binary search
 - Reverse list
+- Reverse array
 - Fibonacci
 - Fibonacci recursive
+- Shuffle list
