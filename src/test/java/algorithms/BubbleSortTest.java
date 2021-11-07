@@ -62,4 +62,15 @@ public class BubbleSortTest {
 
         assertEquals(expected, victim.sort(input));
     }
+
+
+    @Test
+    public void sortTwentyElementList() {
+        List<Integer> input = Arrays.asList(
+                7, 11, 5, 13, 9, 12, 19, 15, 17, 3, 8, 1, 16, 6, 20, 4, 2, 18, 14, 10);
+        List<Integer> expected = Arrays.asList(
+                1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
+
+        assertEquals(expected, victim.sort(input));
+    }
 }
