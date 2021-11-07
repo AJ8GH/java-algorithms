@@ -6,11 +6,11 @@ import org.testng.annotations.Test;
 import static org.testng.AssertJUnit.assertArrayEquals;
 
 public class BubbleSortArrayTest {
-    private static BubbleSortArray victim;
+    private static BubbleSortArray<Integer> victim;
 
     @BeforeClass
     public static void setUp() {
-        victim = new BubbleSortArray();
+        victim = new BubbleSortArray<>();
     }
 
     @Test

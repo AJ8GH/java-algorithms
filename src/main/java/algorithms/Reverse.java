@@ -13,11 +13,11 @@ public class Reverse {
         return list;
     }
 
-    public int[] reverse(int[] array) {
+    public <T> T[] reverse(T[] array) {
         if (array.length < 2) return array;
         int j = array.length -1;
         for (int i = 0; i < array.length / 2; i++) {
-            int element = array[i];
+            T element = array[i];
             array[i] = array[j];
             array[j--] = element;
         }

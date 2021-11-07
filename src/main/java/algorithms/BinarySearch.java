@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Objects;
 
 @Slf4j
-public class BinarySearch {
+public class BinarySearch<T extends Comparable<? super T>> {
 
-    public int search(List<Integer> list, Integer element) {
+    public int search(List<T> list, T element) {
         int counter = 0;
         int lower = 0;
         int upper = list.size() - 1;
@@ -16,10 +16,10 @@ public class BinarySearch {
 
         while (upper - lower > 1) {
             counter++;
-            Integer middleElement = list.get(middle);
+            T middleElement = list.get(middle);
             if (Objects.equals(middleElement, element)) return middle;
-            if (middleElement > element) upper = middle;
-            if (middleElement < element) lower = middle;
+            if (middleElement.compareTo(element) > 0) upper = middle;
+            if (middleElement.compareTo(element) < 0) lower = middle;
             middle = (lower + upper) / 2;
         }
         log.info("Number of searches:  {}", counter);

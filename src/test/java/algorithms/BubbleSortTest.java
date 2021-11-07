@@ -12,11 +12,11 @@ import static java.util.Collections.singletonList;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class BubbleSortTest {
-    private static BubbleSort victim;
+    private static BubbleSort<Integer> victim;
 
     @BeforeClass
     public static void setUp() {
-        victim = new BubbleSort();
+        victim = new BubbleSort<>();
     }
 
     @Test

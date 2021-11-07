@@ -9,11 +9,11 @@ import static java.util.Collections.singletonList;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class BinarySearchTest {
-    private static BinarySearch victim;
+    private static BinarySearch<Integer> victim;
 
     @BeforeClass
     public static void setUp() {
-        victim = new BinarySearch();
+        victim = new BinarySearch<>();
     }
 
     @Test
