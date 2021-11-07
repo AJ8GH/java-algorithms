@@ -40,7 +40,17 @@ public class ShuffleTest {
         victim.shuffle(list);
 
         expected = List.of(2, 1);
+        assertEquals(expected, list);
+    }
 
+    @Test
+    public void testShuffle_SixElementList() {
+        list = Arrays.asList(1, 2, 3, 4, 5, 6);
+        random.setSeed(1L);
+
+        victim.shuffle(list);
+
+        expected = List.of(4, 3, 2, 1, 5, 6);
         assertEquals(expected, list);
     }
 }

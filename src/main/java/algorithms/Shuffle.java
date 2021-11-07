@@ -19,7 +19,6 @@ public class Shuffle {
             int j = random.nextInt(list.size());
             Collections.swap(list, i, j);
         }
-        log.info(list.toString());
         return list;
     }
 }
