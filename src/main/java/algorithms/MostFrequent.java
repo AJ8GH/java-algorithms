@@ -1,19 +1,31 @@
 package algorithms;
 
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 import static java.util.Collections.singletonList;
 
 public class MostFrequent {
     public List<String> findMostFrequent(List<String> words) {
-        Set<String> set = new HashSet<>();
+        Map<String, Integer> tally = new HashMap<>();
         for (String word : words) {
-            if (!set.add(word)) {
-                return singletonList(word);
+            if (tally.containsKey(word)) {
+                tally.replace(word, tally.get(word) + 1);
+            } else {
+                tally.put(word, 1);
             }
         }
-        return words;
+        int highest = 1;
+        String mostFrequent = null;
+        for (Map.Entry<String, Integer> entry : tally.entrySet()) {
+            if (entry.getValue() > highest) {
+                highest = entry.getValue();
+                mostFrequent = entry.getKey();
+            }
+        }
+        return mostFrequent != null ?
+                singletonList(mostFrequent) :
+                words;
     }
 }

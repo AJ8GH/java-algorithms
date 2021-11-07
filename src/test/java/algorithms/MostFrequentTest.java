@@ -25,11 +25,20 @@ public class MostFrequentTest {
     }
 
     @Test
-    public void testMostFrequent_FourElementList_ClearWinner() {
+    public void testMostFrequent_TwoElementWinner() {
         List<String> words = List.of("The", "swift", "fox", "fox");
         List<String> result = victim.findMostFrequent(words);
 
         List<String> expected = singletonList("fox");
+        assertEquals(expected, result);
+    }
+
+    @Test
+    public void testMostFrequent_ThreeElementWinner() {
+        List<String> words = List.of("The", "swift", "fox", "fox", "jumped", "jumped", "jumped");
+        List<String> result = victim.findMostFrequent(words);
+
+        List<String> expected = singletonList("jumped");
         assertEquals(expected, result);
     }
 }
