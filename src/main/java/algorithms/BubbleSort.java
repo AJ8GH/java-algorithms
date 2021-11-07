@@ -5,15 +5,16 @@ import java.util.List;
 
 public class BubbleSort {
     public List<Integer> sort(List<Integer> input) {
-        while (true) {
-            int counter = 0;
-            for (int i = 0; i < input.size() -1; i++) {
-                if (input.get(i) > input.get(i + 1)) {
-                    Collections.swap(input, i, i + 1);
-                    counter++;
+        for (int i = 0; i < input.size() -1; i++) {
+            if (input.get(i) > input.get(i + 1)) {
+                Collections.swap(input, i, i + 1);
+            }
+            for (int j = input.size() -1; j >= 1; j--) {
+                if (input.get(j) < input.get(j - 1)) {
+                    Collections.swap(input, j, j - 1);
                 }
             }
-            if (counter == 0) return input;
         }
+        return input;
     }
 }
