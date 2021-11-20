@@ -8,29 +8,28 @@ import java.util.Set;
 
 public class MostFrequent {
     public Set<String> findMostFrequent(List<String> words) {
+        Map<String, Integer> tally = getTally(words);
+        Set<String> mostFrequent = new HashSet<>();
+        int highest = 1;
+
+        for (Map.Entry<String, Integer> entry : tally.entrySet()) {
+            if (entry.getValue() > highest) {
+                highest = entry.getValue();
+                mostFrequent.clear();
+                mostFrequent.add(entry.getKey());
+            } else if (entry.getValue() == highest) {
+                mostFrequent.add(entry.getKey());
+            }
+        }
+        return mostFrequent;
+    }
+
+    private Map<String, Integer> getTally(List<String> words) {
         Map<String, Integer> tally = new HashMap<>();
         for (String word : words) {
-            if (tally.containsKey(word)) {
-                tally.replace(word, tally.get(word) + 1);
-            } else {
-                tally.put(word, 1);
-            }
+            Integer count = tally.get(word);
+            tally.put(word, (count != null) ? ++count : 1);
         }
-        int highest = 1;
-        Set<String> mostFrequent = new HashSet<>();
-        for (Map.Entry<String, Integer> entry : tally.entrySet()) {
-            String word = entry.getKey();
-            Integer count = entry.getValue();
-
-            if (count > highest) {
-                highest = count;
-                mostFrequent.clear();
-                mostFrequent.add(word);
-            } else if (count == highest && highest > 1) {
-                mostFrequent.add(word);
-            }
-        }
-        if (mostFrequent.isEmpty()) mostFrequent.addAll(words);
-        return mostFrequent;
+        return tally;
     }
 }
