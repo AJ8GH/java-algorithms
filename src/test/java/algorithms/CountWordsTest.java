@@ -36,4 +36,12 @@ public class CountWordsTest {
 
         assertEquals(expected, victim.count(inputString));
     }
+
+    @Test
+    public void testCount_WordStringWithPunctuation() {
+        String inputString = "hello bye bye,";
+        String expected = "{hello=1, bye=2}";
+
+        assertEquals(expected, victim.count(inputString));
+    }
 }

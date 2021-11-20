@@ -25,11 +25,11 @@ public class MostFrequent {
     }
 
     private Map<String, Integer> getTally(List<String> words) {
-        Map<String, Integer> tally = new HashMap<>();
+        Map<String, Integer> count = new HashMap<>();
         for (String word : words) {
-            Integer count = tally.get(word);
-            tally.put(word, (count != null) ? ++count : 1);
+            Integer tally = count.get(word);
+            count.put(word, (tally != null) ? ++tally : 1);
         }
-        return tally;
+        return count;
     }
 }
