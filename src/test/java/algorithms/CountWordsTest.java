@@ -15,16 +15,16 @@ public class CountWordsTest {
 
     @Test
     public void testCount_OneWordString() {
-        String inputString = "The";
-        String expected = "{The=1}";
+        String inputString = "the";
+        String expected = "{the=1}";
 
         assertEquals(expected, victim.count(inputString));
     }
 
     @Test
     public void testCount_TwoWordString() {
-        String inputString = "The swift";
-        String expected = "{The=1, swift=1}";
+        String inputString = "the swift";
+        String expected = "{the=1, swift=1}";
 
         assertEquals(expected, victim.count(inputString));
     }
@@ -57,6 +57,14 @@ public class CountWordsTest {
     public void testCount_HyphenatedWord() {
         String inputString = "long-term, long-term, high-tech";
         String expected = "{high-tech=1, long-term=2}";
+
+        assertEquals(expected, victim.count(inputString));
+    }
+
+    @Test
+    public void testCount_DifferentCases() {
+        String inputString = "Hello hello! Nice to meet you. BYE Bye bye...";
+        String expected = "{meet=1, hello=2, to=1, nice=1, you=1, bye=3}";
 
         assertEquals(expected, victim.count(inputString));
     }

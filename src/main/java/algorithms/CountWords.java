@@ -15,6 +15,6 @@ public class CountWords {
     }
 
     private String normalize(String word) {
-        return word.replaceAll("[^a-zA-Z'-]", "");
+        return word.toLowerCase().replaceAll("[^a-zA-Z'-]", "");
     }
 }
