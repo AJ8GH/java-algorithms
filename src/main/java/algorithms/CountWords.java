@@ -7,7 +7,7 @@ public class CountWords {
     public String count(String inputString) {
         Map<String, Integer> count = new HashMap<>();
         for (String word : inputString.split(" ")) {
-            word = word.replaceAll("[\\W]", "");
+            word = word.replaceAll("[^a-zA-Z'-]", "");
             Integer tally = count.get(word);
             count.put(word, (tally != null) ? ++tally : 1);
         }

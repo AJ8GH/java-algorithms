@@ -44,4 +44,20 @@ public class CountWordsTest {
 
         assertEquals(expected, victim.count(inputString));
     }
+
+    @Test
+    public void testCount_WordWithApostrophe() {
+        String inputString = "don't, can't, don't";
+        String expected = "{don't=2, can't=1}";
+
+        assertEquals(expected, victim.count(inputString));
+    }
+
+    @Test
+    public void testCount_HyphenatedWord() {
+        String inputString = "long-term, long-term, high-tech";
+        String expected = "{high-tech=1, long-term=2}";
+
+        assertEquals(expected, victim.count(inputString));
+    }
 }
