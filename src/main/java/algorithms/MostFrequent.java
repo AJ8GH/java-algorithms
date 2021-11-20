@@ -1,13 +1,13 @@
 package algorithms;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-
-import static java.util.Collections.singletonList;
+import java.util.Set;
 
 public class MostFrequent {
-    public List<String> findMostFrequent(List<String> words) {
+    public Set<String> findMostFrequent(List<String> words) {
         Map<String, Integer> tally = new HashMap<>();
         for (String word : words) {
             if (tally.containsKey(word)) {
@@ -17,15 +17,20 @@ public class MostFrequent {
             }
         }
         int highest = 1;
-        String mostFrequent = null;
+        Set<String> mostFrequent = new HashSet<>();
         for (Map.Entry<String, Integer> entry : tally.entrySet()) {
-            if (entry.getValue() > highest) {
-                highest = entry.getValue();
-                mostFrequent = entry.getKey();
+            String word = entry.getKey();
+            Integer count = entry.getValue();
+
+            if (count > highest) {
+                highest = count;
+                mostFrequent.clear();
+                mostFrequent.add(word);
+            } else if (count == highest && highest > 1) {
+                mostFrequent.add(word);
             }
         }
-        return mostFrequent != null ?
-                singletonList(mostFrequent) :
-                words;
+        if (mostFrequent.isEmpty()) mostFrequent.addAll(words);
+        return mostFrequent;
     }
 }
