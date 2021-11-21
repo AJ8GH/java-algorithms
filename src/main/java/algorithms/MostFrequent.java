@@ -27,9 +27,14 @@ public class MostFrequent {
     private Map<String, Integer> getTally(List<String> words) {
         Map<String, Integer> count = new HashMap<>();
         for (String word : words) {
+            word = normalize(word);
             Integer tally = count.get(word);
             count.put(word, (tally != null) ? ++tally : 1);
         }
         return count;
+    }
+
+    private String normalize(String word) {
+        return word.toLowerCase().replaceAll("[^a-zA-Z'-]", "");
     }
 }
