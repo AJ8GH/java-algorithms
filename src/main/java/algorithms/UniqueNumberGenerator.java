@@ -13,12 +13,8 @@ public class UniqueNumberGenerator {
     }
 
     public long generateUniqueNumber(long clientId) {
-        AtomicLong clientNumber = clientNumberMap.get(clientId);
-        if (clientNumber == null) {
-            clientNumber = new AtomicLong(0);
-            clientNumberMap.put(clientId, clientNumber);
-        }
-        return clientNumber.incrementAndGet();
+        clientNumberMap.putIfAbsent(clientId, new AtomicLong(0));
+        return clientNumberMap.get(clientId).incrementAndGet();
     }
 
     public long getUniqueNumber() {
