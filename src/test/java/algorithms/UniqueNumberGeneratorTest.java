@@ -10,8 +10,11 @@ public class UniqueNumberGeneratorTest {
     public void testGenerateUniqueNumber() {
         UniqueNumberGenerator victim = new UniqueNumberGenerator();
 
-        assertEquals(0, victim.generateUniqueNumber());
+        assertEquals(1, victim.generateUniqueNumber());
         assertEquals(1, victim.getUniqueNumber());
+
+        assertEquals(2, victim.generateUniqueNumber());
+        assertEquals(2, victim.getUniqueNumber());
     }
 
     @Test

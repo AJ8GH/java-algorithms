@@ -9,7 +9,7 @@ public class UniqueNumberGenerator {
     private final ConcurrentMap<Long, AtomicLong> clientNumberMap = new ConcurrentHashMap<>();
 
     public long generateUniqueNumber() {
-        return uniqueNumber.getAndIncrement();
+        return uniqueNumber.incrementAndGet();
     }
 
     public long generateUniqueNumber(long clientId) {
