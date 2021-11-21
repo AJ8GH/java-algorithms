@@ -1,11 +1,12 @@
 package algorithms;
 
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class UniqueNumberGenerator {
     private final AtomicLong uniqueNumber = new AtomicLong(0);
-    private final ConcurrentHashMap<Long, AtomicLong> clientNumberMap = new ConcurrentHashMap<>();
+    private final ConcurrentMap<Long, AtomicLong> clientNumberMap = new ConcurrentHashMap<>();
 
     public long generateUniqueNumber() {
         return uniqueNumber.getAndIncrement();
