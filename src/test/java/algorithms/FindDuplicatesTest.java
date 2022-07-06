@@ -1,44 +1,47 @@
 package algorithms;
 
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import static java.util.Collections.emptySet;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-import static java.util.Collections.emptyList;
-import static java.util.Collections.emptySet;
-import static org.testng.AssertJUnit.assertEquals;
+class FindDuplicatesTest {
+  private FindDuplicates victim;
 
-public class FindDuplicatesTest {
-    private static FindDuplicates victim;
+  @BeforeEach
+  void setUp() {
+    victim = new FindDuplicates();
+  }
 
-    @BeforeClass
-    public static void setUp() {
-        victim = new FindDuplicates();
-    }
+  @ParameterizedTest(name = "{index} => {0}")
+  @MethodSource(value = "dataProvider")
+  <T> void findDuplicates(String name, List<T> input, Set<T> expected) {
+    assertEquals(expected, victim.findDuplicates(input));
+  }
 
-    @Test
-    public void findDuplicates_emptyList() {
-        List<Integer> input = emptyList();
-        assertEquals(emptySet(), victim.findDuplicates(input));
-    }
-
-    @Test
-    public void findDuplicates_oneDuplicate() {
-        List<Integer> input = List.of(1, 1);
-        assertEquals(Set.of(1), victim.findDuplicates(input));
-    }
-
-    @Test
-    public void findDuplicates_manyDuplicates() {
-        List<String> input = List.of("1", "0", "2", "4", "7", "1", "5", "5");
-        assertEquals(Set.of("1", "5"), victim.findDuplicates(input));
-    }
-
-    @Test
-    public void findDuplicates_noDuplicates() {
-        List<String> input = List.of("1", "0", "2", "4", "7", "3", "5", "9");
-        assertEquals(emptySet(), victim.findDuplicates(input));
-    }
+  private static Stream<Arguments> dataProvider() {
+    return Stream.of(
+        Arguments.of(
+            "One duplicate",
+            List.of(1, 1),
+            Set.of(1)
+        ),
+        Arguments.of(
+            "Many duplicates",
+            List.of("1", "0", "2", "4", "7", "1", "5", "5"),
+            Set.of("1", "5")
+        ),
+        Arguments.of(
+            "No duplicates",
+            List.of("1", "0", "2", "4", "7", "3", "5", "9"),
+            emptySet()
+        )
+    );
+  }
 }

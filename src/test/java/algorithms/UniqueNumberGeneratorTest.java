@@ -1,44 +1,45 @@
 package algorithms;
 
-import org.testng.annotations.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import static org.testng.AssertJUnit.assertEquals;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-public class UniqueNumberGeneratorTest {
+class UniqueNumberGeneratorTest {
+  private UniqueNumberGenerator victim;
 
-    @Test
-    public void testGenerateUniqueNumber() {
-        UniqueNumberGenerator victim = new UniqueNumberGenerator();
+  @BeforeEach
+  void setUp() {
+    victim = new UniqueNumberGenerator();
+  }
 
-        assertEquals(1, victim.generateUniqueNumber());
-        assertEquals(1, victim.getUniqueNumber());
+  @Test
+  void testGenerateUniqueNumber() {
+    assertEquals(1, victim.generateUniqueNumber());
+    assertEquals(1, victim.getUniqueNumber());
 
-        assertEquals(2, victim.generateUniqueNumber());
-        assertEquals(2, victim.getUniqueNumber());
-    }
+    assertEquals(2, victim.generateUniqueNumber());
+    assertEquals(2, victim.getUniqueNumber());
+  }
 
-    @Test
-    public void testGenerateUniqueNumber_WithClientId() {
-        UniqueNumberGenerator victim = new UniqueNumberGenerator();
+  @Test
+  void testGenerateUniqueNumber_WithClientId() {
+    assertEquals(1, victim.generateUniqueNumber(1));
+    assertEquals(1, victim.getUniqueNumber(1));
+  }
 
-        assertEquals(1, victim.generateUniqueNumber(1));
-        assertEquals(1, victim.getUniqueNumber(1));
-    }
+  @Test
+  void testGenerateUniqueNumber_WithClientId_MoreOperations() {
+    assertEquals(1, victim.generateUniqueNumber(1));
+    assertEquals(1, victim.getUniqueNumber(1));
 
-    @Test
-    public void testGenerateUniqueNumber_WithClientId_MoreOperations() {
-        UniqueNumberGenerator victim = new UniqueNumberGenerator();
+    assertEquals(2, victim.generateUniqueNumber(1));
+    assertEquals(2, victim.getUniqueNumber(1));
 
-        assertEquals(1, victim.generateUniqueNumber(1));
-        assertEquals(1, victim.getUniqueNumber(1));
+    assertEquals(1, victim.generateUniqueNumber(2));
+    assertEquals(1, victim.getUniqueNumber(2));
 
-        assertEquals(2, victim.generateUniqueNumber(1));
-        assertEquals(2, victim.getUniqueNumber(1));
-
-        assertEquals(1, victim.generateUniqueNumber(2));
-        assertEquals(1, victim.getUniqueNumber(2));
-
-        assertEquals(3, victim.generateUniqueNumber(1));
-        assertEquals(3, victim.getUniqueNumber(1));
-    }
+    assertEquals(3, victim.generateUniqueNumber(1));
+    assertEquals(3, victim.getUniqueNumber(1));
+  }
 }

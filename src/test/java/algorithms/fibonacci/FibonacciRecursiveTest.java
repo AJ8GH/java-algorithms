@@ -1,50 +1,38 @@
 package algorithms.fibonacci;
 
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
-
-import java.util.List;
-
 import static java.util.Collections.emptyList;
 import static java.util.Collections.singletonList;
-import static org.testng.AssertJUnit.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class FibonacciRecursiveTest {
-    private static FibonacciRecursive victim;
+import java.util.List;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-    @BeforeClass
-    public static void setUp() {
-        victim = new FibonacciRecursive();
-    }
+class FibonacciRecursiveTest {
+  private FibonacciRecursive victim;
 
-    @Test
-    public void testGetSequence_oneNumber() {
-        assertEquals(singletonList(0), victim.getSequence(1));
-    }
+  @BeforeEach
+  void setUp() {
+    victim = new FibonacciRecursive();
+  }
 
-    @Test
-    public void testGetSequence_twoNumbers() {
-        assertEquals(List.of(0, 1), victim.getSequence(2));
-    }
+  @ParameterizedTest(name = "{index} => {0}")
+  @MethodSource(value = "dataProvider")
+  void testGetSequence_oneNumber(String name, List<Integer> expected, int n) {
+    assertEquals(expected, victim.getSequence(n));
+  }
 
-    @Test
-    public void testGetSequence_zeroNumbers() {
-        assertEquals(emptyList(), victim.getSequence(0));
-    }
-
-    @Test
-    public void testGetSequence_threeNumbers() {
-        assertEquals(List.of(0, 1, 1), victim.getSequence(3));
-    }
-
-    @Test
-    public void testGetSequence_fourNumbers() {
-        assertEquals(List.of(0, 1, 1, 2), victim.getSequence(4));
-    }
-
-    @Test
-    public void testGetSequence_tenNumbers() {
-        List<Integer> expected = List.of(0, 1, 1, 2, 3, 5, 8, 13, 21, 34);
-        assertEquals(expected, victim.getSequence(10));
-    }
+  private static Stream<Arguments> dataProvider() {
+    return Stream.of(
+        Arguments.of("One number", singletonList(0), 1),
+        Arguments.of("Two numbers", List.of(0, 1), 2),
+        Arguments.of("Zero numbers", emptyList(), 0),
+        Arguments.of("Three numbers", List.of(0, 1, 1), 3),
+        Arguments.of("Four numbers", List.of(0, 1, 1, 2), 4),
+        Arguments.of("Ten numbers", List.of(0, 1, 1, 2, 3, 5, 8, 13, 21, 34), 10)
+    );
+  }
 }

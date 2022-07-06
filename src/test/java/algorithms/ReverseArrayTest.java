@@ -1,73 +1,53 @@
 package algorithms;
 
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-import static org.testng.internal.junit.ArrayAsserts.assertArrayEquals;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
-public class ReverseArrayTest {
-    private static Reverse victim;
+class ReverseArrayTest {
+  private static Reverse victim;
 
-    private Integer[] array;
-    private Integer[] expectedArray;
+  @BeforeEach
+  void setUp() {
+    victim = new Reverse();
+  }
 
-    @BeforeClass
-    public static void setUp() {
-        victim = new Reverse();
-    }
+  @ParameterizedTest(name = "{index} => {0}")
+  @MethodSource(value = "dataProvider")
+  void reverse(String name, Integer[] expected, Integer[] actual) {
+    assertArrayEquals(expected, victim.reverse(actual));
+  }
 
-    @Test
-    public void testReverse_OneElementArray() {
-        array = new Integer[] { 1 };
-
-        assertArrayEquals(array, victim.reverse(array));
-    }
-
-    @Test
-    public void testReverse_TwoElementArray() {
-        array = new Integer[] { 1, 2 };
-        expectedArray = new Integer[] { 2, 1 };
-
-        assertArrayEquals(expectedArray, victim.reverse(array));
-    }
-
-    @Test
-    public void testReverse_ThreeElementArray() {
-        array = new Integer[] { 1, 2, 3 };
-        expectedArray = new Integer[] { 3, 2, 1 };
-
-        assertArrayEquals(expectedArray, victim.reverse(array));
-    }
-
-    @Test
-    public void testReverse_FourElementArray() {
-        array = new Integer[] { 1, 2, 3, 4 };
-        expectedArray = new Integer[] { 4, 3, 2, 1 };
-
-        assertArrayEquals(expectedArray, victim.reverse(array));
-    }
-
-    @Test
-    public void testReverse_FiveElementArray() {
-        array = new Integer[] { 1, 2, 3, 4, 5 };
-        expectedArray = new Integer[] { 5, 4, 3, 2, 1 };
-
-        assertArrayEquals(expectedArray, victim.reverse(array));
-    }
-
-    @Test
-    public void testReverse_TwelveElementArray() {
-        array = new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
-        expectedArray = new Integer[] { 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
-
-        assertArrayEquals(expectedArray, victim.reverse(array));
-    }
-
-    @Test
-    public void testReverse_FifteenElementArray() {
-        array = new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
-        expectedArray = new Integer[] { 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
-
-        assertArrayEquals(expectedArray, victim.reverse(array));
-    }
+  private static Stream<Arguments> dataProvider() {
+    return Stream.of(
+        Arguments.of("Empty array", new Integer[] {}, new Integer[] {}),
+        Arguments.of("Singleton array", new Integer[] { 1 }, new Integer[] { 1 }),
+        Arguments.of("Two element array", new Integer[] { 2, 1 }, new Integer[] { 1, 2 }),
+        Arguments.of("Three element array", new Integer[] { 3, 2, 1 }, new Integer[] { 1, 2, 3 }),
+        Arguments.of(
+            "Four element array",
+            new Integer[] { 4, 3, 2, 1 },
+            new Integer[] { 1, 2, 3, 4 }
+        ),
+        Arguments.of(
+            "Five element array",
+            new Integer[] { 5, 4, 3, 2, 1 },
+            new Integer[] { 1, 2, 3, 4, 5 }
+        ),
+        Arguments.of(
+            "Twelve element array",
+            new Integer[] { 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 },
+            new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 }
+        ),
+        Arguments.of(
+            "Fifteen element array",
+            new Integer[] { 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 },
+            new Integer[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }
+        )
+    );
+  }
 }
