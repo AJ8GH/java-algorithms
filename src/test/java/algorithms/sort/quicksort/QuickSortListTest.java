@@ -1,4 +1,4 @@
-package algorithms.quicksort;
+package algorithms.sort.quicksort;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
